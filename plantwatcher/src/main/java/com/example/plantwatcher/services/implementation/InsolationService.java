@@ -1,4 +1,8 @@
 package com.example.plantwatcher.services.implementation;
 
-public class InsolationService {
+import com.example.plantwatcher.services.interfaces.InsolationInterface;
+import org.springframework.stereotype.Service;
+
+@Service
+public class InsolationService implements InsolationInterface {
 }
