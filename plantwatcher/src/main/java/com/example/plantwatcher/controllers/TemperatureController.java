@@ -13,7 +13,7 @@ public class TemperatureController {
     @RequestMapping("/sensorRead")
     public ResponseEntity<String> postTemperatureRead(@RequestBody String requestBody){
 
-       // System.out.println(requestBody);
+        System.out.println("Temperature: "+requestBody);
         return ResponseEntity.ok().build();
     }
 }

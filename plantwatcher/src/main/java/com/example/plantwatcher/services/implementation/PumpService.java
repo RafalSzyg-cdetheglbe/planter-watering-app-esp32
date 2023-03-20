@@ -1,4 +1,4 @@
-package com.example.plantwatcher.services;
+package com.example.plantwatcher.services.implementation;
 
 import com.example.plantwatcher.controllers.PumpController;
 import org.springframework.stereotype.Service;

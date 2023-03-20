@@ -2,8 +2,9 @@
 #include <HTTPClient.h>
 #include "esp32-hal-gpio.h"
 
-#define MOISTURE_PIN 35
-//#define RELAY_PIN    27 // ESP32 pin GIOP27 that connects to relay
+#define MOISTURE_SENSOR_PIN GPIO_NUM_34
+//#define TEMPERATURE_SENSOR_PIN GPIO_NUM_35
+
 int RELAY_PIN=17;
 
 const char* ssid = "mikoshi";
@@ -26,6 +27,13 @@ if (httpResponseCode > 0) {
 
 void setup() {
   Serial.begin(115200);
+
+  gpio_set_direction(MOISTURE_SENSOR_PIN, GPIO_MODE_INPUT);
+  gpio_pullup_en(MOISTURE_SENSOR_PIN);
+
+  //gpio_set_direction(TEMPERATURE_SENSOR_PIN, GPIO_MODE_INPUT);
+ // gpio_pullup_en(TEMPERATURE_SENSOR_PIN);
+
   pinMode(RELAY_PIN, INPUT);
   WiFi.begin(ssid, password);
   Serial.println("Connecting to WiFi");
@@ -37,11 +45,13 @@ void loop() {
     Serial.println("WiFi connected");
 
   
-  
-  String temperatureData="666";
   String insolationData="555";
 
-  int moisture =analogRead(MOISTURE_PIN);
+//int temperature=analogRead(TEMPERATURE_SENSOR_PIN);
+//  String temperatureData=String(temperature);
+//Serial.println("TEMPERATURE: ");
+ // Serial.println(temperature);
+  int moisture =analogRead(MOISTURE_SENSOR_PIN);
   String moistureData=String(moisture);
   Serial.println("MOISTURE: ");
   Serial.println(moistureData);
@@ -52,7 +62,7 @@ void loop() {
   http.end();
  ///////////////////////////////////////////////
   http.begin(temperatureEndpoint);
-  int httpTemperatureResponseCode = http.POST(temperatureData);
+  int httpTemperatureResponseCode = http.POST("temperatureData");
   checkResponse(httpTemperatureResponseCode);
   http.end();
  ///////////////////////////////////////////////

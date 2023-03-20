@@ -16,7 +16,7 @@ public class MoistureController {
     @RequestMapping("/sensorRead")
     public ResponseEntity<String> postMoistureRead(@RequestBody String requestBody){
 
-        System.out.println(requestBody);
+        System.out.println("Moisture: "+requestBody);
         return ResponseEntity.ok().build();
     }
 
