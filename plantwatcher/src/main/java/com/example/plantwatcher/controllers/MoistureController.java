@@ -6,6 +6,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/moisture")
 public class MoistureController {
@@ -32,4 +34,13 @@ private final MoistureService moistureService;
         Moisture moisture=moistureService.getAllMoistureDataOfLastReading();
       return ResponseEntity.ok(moisture.toString());
     }
+
+    @GetMapping
+    @RequestMapping("/getAllMoistureReadings")
+    public ResponseEntity<String> getAllMoistureReadings(){
+        List<Moisture> moistures=moistureService.getAllMoistureReadings();
+        return ResponseEntity.ok(moistures.toString());
+    }
+
+
 }

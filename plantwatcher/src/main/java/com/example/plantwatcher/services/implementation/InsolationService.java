@@ -6,6 +6,7 @@ import com.example.plantwatcher.services.interfaces.InsolationInterface;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 public class InsolationService implements InsolationInterface {
@@ -27,5 +28,9 @@ private final InsolationRepository insolationRepository;
 
     public Insolation getAllInsolationDataOfLastReading() {
         return insolationRepository.findFirstByOrderByDateDesc();
+    }
+
+    public List<Insolation> getAllInsolationReadings() {
+        return insolationRepository.findAllByOrderByDateAsc();
     }
 }

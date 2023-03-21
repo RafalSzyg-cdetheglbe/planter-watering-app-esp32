@@ -14,5 +14,13 @@ public class Configuration {
     @JoinColumn(name = "config_id")
     private Configs config;
 
+    public Configs getConfig() {
+        return config;
+    }
+
+    public void setConfig(Configs config) {
+        this.config = config;
+    }
+
     // Getters and setters
 }

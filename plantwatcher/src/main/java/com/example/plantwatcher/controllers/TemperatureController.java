@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/temperature")
 public class TemperatureController {
@@ -34,5 +36,14 @@ public class TemperatureController {
         Temperature temperature = temperatureService.getAllTemperatureDataOfLastReading();
         return ResponseEntity.ok(temperature.toString());
     }
+
+    @GetMapping
+    @RequestMapping("/getAllTemperatureReadings")
+    public ResponseEntity<String> getAllTemperatureReadings(){
+        List<Temperature> moistures=temperatureService.getAllTemperatureReadings();
+        return ResponseEntity.ok(moistures.toString());
+    }
+
+
 }
 

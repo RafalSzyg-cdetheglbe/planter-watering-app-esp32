@@ -6,6 +6,7 @@ import com.example.plantwatcher.services.interfaces.TemperatureInterface;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 public class TemperatureService implements TemperatureInterface {
@@ -26,5 +27,9 @@ public class TemperatureService implements TemperatureInterface {
 
     public Temperature getAllTemperatureDataOfLastReading() {
         return temperatureRepository.findFirstByOrderByDateDesc();
+    }
+
+    public List<Temperature> getAllTemperatureReadings() {
+        return  temperatureRepository.findAllByOrderByDateAsc();
     }
 }

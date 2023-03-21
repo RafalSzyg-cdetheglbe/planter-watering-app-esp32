@@ -6,6 +6,7 @@ import com.example.plantwatcher.services.interfaces.MoistureInterface;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 public class MoistureService implements MoistureInterface {
@@ -32,9 +33,12 @@ public class MoistureService implements MoistureInterface {
     }
 
     @Override
-    public void deleteOldRecordings() {
+    public void deleteOldRecordings(){
 
     }
 
 
+    public List<Moisture> getAllMoistureReadings() {
+        return moistureRepository.findAllByOrderByDateAsc();
+    }
 }

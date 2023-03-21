@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/insolation")
 public class InsolationController {
@@ -37,4 +39,13 @@ private final InsolationService insolationService;
         Insolation insolation= insolationService.getAllInsolationDataOfLastReading();
         return ResponseEntity.ok(insolation.toString());
     }
+
+    @GetMapping
+    @RequestMapping("/getAllInsolationReadings")
+    public ResponseEntity<String> getAllMoistureReadings(){
+        List<Insolation> moistures=insolationService.getAllInsolationReadings();
+        return ResponseEntity.ok(moistures.toString());
+    }
+
+
 }
