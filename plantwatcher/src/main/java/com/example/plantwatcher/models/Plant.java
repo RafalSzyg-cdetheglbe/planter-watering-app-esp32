@@ -17,5 +17,8 @@ public class Plant {
     @JoinColumn(name = "config_id")
     private Configs config;
 
+    @Lob
+    @Column(name = "image")
+    private byte[] image;
     // Getters and setters
 }

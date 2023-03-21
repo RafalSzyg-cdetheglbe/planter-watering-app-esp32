@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface MoistureRepository  extends JpaRepository<Moisture, Long> {
-
+    Moisture findFirstByOrderByDateDesc();
 }

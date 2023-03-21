@@ -27,8 +27,8 @@ public class MoistureService implements MoistureInterface {
 
     @Override
     public Moisture getAllMoistureDataOfLastReading() {
-        //return moistureRepository.findByLastMoistureReading();
-        return null;
+
+        return moistureRepository.findFirstByOrderByDateDesc();
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.example.plantwatcher.controllers;
 
+import com.example.plantwatcher.models.Moisture;
 import com.example.plantwatcher.services.implementation.MoistureService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -20,7 +21,7 @@ private final MoistureService moistureService;
     @RequestMapping("/sensorRead")
     public ResponseEntity<String> postMoistureRead(@RequestBody String requestBody){
 
-        System.out.println("Moisture: "+requestBody);
+        System.out.println("MOISTURE: "+requestBody);
         moistureService.postSensorRead(Integer.parseInt(requestBody));
         return ResponseEntity.ok().build();
     }
@@ -28,7 +29,7 @@ private final MoistureService moistureService;
     @GetMapping
     @RequestMapping("/getMoisture")
     public ResponseEntity<String> getMoistureInfo(){
-        ResponseEntity<String>responseEntity;
-      return ResponseEntity.ok().build();
+        Moisture moisture=moistureService.getAllMoistureDataOfLastReading();
+      return ResponseEntity.ok(moisture.toString());
     }
 }
