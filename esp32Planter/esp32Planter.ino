@@ -1,11 +1,17 @@
 #include <WiFi.h>
 #include <HTTPClient.h>
 #include "esp32-hal-gpio.h"
+#include <OneWire.h>
+#include <DallasTemperature.h>
 
 #define MOISTURE_SENSOR_PIN GPIO_NUM_34
-//#define TEMPERATURE_SENSOR_PIN GPIO_NUM_35
+#define INSOLATION_SENSOR_PIN GPIO_NUM_35
 
 int RELAY_PIN=17;
+const int oneWireBus = 4;
+
+OneWire oneWire(oneWireBus);
+DallasTemperature sensors (&oneWire);
 
 const char* ssid = "mikoshi";
 const char* password = "Kraken123";
@@ -27,12 +33,14 @@ if (httpResponseCode > 0) {
 
 void setup() {
   Serial.begin(115200);
+  sensors.begin();
 
   gpio_set_direction(MOISTURE_SENSOR_PIN, GPIO_MODE_INPUT);
   gpio_pullup_en(MOISTURE_SENSOR_PIN);
 
-  //gpio_set_direction(TEMPERATURE_SENSOR_PIN, GPIO_MODE_INPUT);
- // gpio_pullup_en(TEMPERATURE_SENSOR_PIN);
+  gpio_set_direction(INSOLATION_SENSOR_PIN, GPIO_MODE_INPUT);
+  gpio_pullup_en(INSOLATION_SENSOR_PIN);
+
 
   pinMode(RELAY_PIN, INPUT);
   WiFi.begin(ssid, password);
@@ -42,15 +50,19 @@ void setup() {
 void loop() {
   if (WiFi.status() == WL_CONNECTED) 
   {
-    Serial.println("WiFi connected");
+  Serial.println("WiFi connected");
 
-  
-  String insolationData="555";
+  sensors.requestTemperatures();
+  float temperature = sensors.getTempCByIndex(0);
+  Serial.print("Temperature: ");
+  Serial.println(temperature);
+  String temperatureData=String(temperature);
 
-//int temperature=analogRead(TEMPERATURE_SENSOR_PIN);
-//  String temperatureData=String(temperature);
-//Serial.println("TEMPERATURE: ");
- // Serial.println(temperature);
+ int insolation=digitalRead(INSOLATION_SENSOR_PIN);
+ String insolationData=String(insolation);
+  Serial.println("INSOLATION: ");
+  Serial.println(insolationData);
+
   int moisture =analogRead(MOISTURE_SENSOR_PIN);
   String moistureData=String(moisture);
   Serial.println("MOISTURE: ");
@@ -62,7 +74,7 @@ void loop() {
   http.end();
  ///////////////////////////////////////////////
   http.begin(temperatureEndpoint);
-  int httpTemperatureResponseCode = http.POST("temperatureData");
+  int httpTemperatureResponseCode = http.POST(temperatureData);
   checkResponse(httpTemperatureResponseCode);
   http.end();
  ///////////////////////////////////////////////

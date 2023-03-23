@@ -24,8 +24,8 @@ public class TemperatureController {
     @PostMapping
     @RequestMapping("/sensorRead")
     public ResponseEntity<String> postTemperatureRead(@RequestBody String requestBody){
-
-        temperatureService.postTemperatureReading(Integer.parseInt(requestBody));
+        int intedRequestBody= (int) Float.parseFloat(requestBody);
+        temperatureService.postTemperatureReading(intedRequestBody);
         System.out.println("Temperature: "+requestBody);
         return ResponseEntity.ok().build();
     }
