@@ -1,0 +1,60 @@
+
+
+.table-container {
+    text-align: center;
+    max-width: 100%;
+    overflow-x: auto;
+    background-color: #27ae60;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+   
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 8px;
+    border: 1px solid #000000;
+  }
+  
+  .chose-btn {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .delete-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .chose-btn:hover, .delete-btn:hover {
+    background-color: #555;
+  }
+
+
+  th {
+    background-color: rgb(82, 214, 133);
+  }
+
+  tr{
+        background-color: rgb(82, 214, 133);
+
+  }
+  
+  @media only screen and (max-width: 600px) {
+    table {
+      font-size: 14px;
+    }
+  }
+  

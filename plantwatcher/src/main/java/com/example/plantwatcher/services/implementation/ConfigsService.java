@@ -6,6 +6,8 @@ import com.example.plantwatcher.repository.ConfigsRepository;
 import com.example.plantwatcher.services.interfaces.ConfigsInterface;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ConfigsService implements ConfigsInterface {
 
@@ -24,5 +26,9 @@ public class ConfigsService implements ConfigsInterface {
         config.setName(configsDTO.getName());
 
         configsRepository.save(config);
+    }
+
+    public List<Configs> getAllConfigs() {
+        return configsRepository.findAll();
     }
 }

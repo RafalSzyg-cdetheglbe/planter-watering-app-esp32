@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+  <div class="w3-container"> 
+  <h1>All Configurations</h1>
+    <table>
+        <tr>
+        <td>Name:</td>
+        <td>{{ config.name }}</td>
+        </tr>
+        <tr>
+        <td>Moisture Starter:</td>
+        <td>{{ config.moistureStarter }}%</td>
+        </tr>
+        <tr>
+        <td>Temperature Starter:</td>
+        <td>{{ config.temperatureStarter }}°C</td>
+      </tr>
+      <tr>
+        <td>Insolation Starter:</td>
+        <td>{{ config.insolationStarter }}%</td>
+      </tr>
+    </table>  
+    <button routerLink="/allConfigs" class="btn">Change configuration</button>
+  </div>
+</body>
+</html>

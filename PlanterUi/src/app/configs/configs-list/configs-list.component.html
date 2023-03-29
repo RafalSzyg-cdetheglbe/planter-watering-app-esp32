@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+  <div class="table-container">
+    <h1>All Configurations</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Moisture</th>
+          <th>Temperature</th>
+          <th>Insolation</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let config of configs">
+          <td>{{ config.name }}</td>
+          <td>{{ config.moistureStarter }}</td>
+          <td>{{ config.temperatureStarter }}</td>
+          <td>{{ config.instolationStarter }}</td>
+          <td>
+              <button class="chose-btn" (click)="chooseConfig(config)">Choose</button>
+              <button class="delete-btn">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

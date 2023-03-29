@@ -1,0 +1,63 @@
+.w3-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items:normal;
+    background-color: #27ae60;
+    height: max-content;
+    justify-content: space-between;
+}
+
+input
+{
+background-color: rgb(82, 214, 133);
+border-radius: 8%;
+border: 0cm;
+margin-left: 0%;
+}
+
+label
+{
+ margin-left: -20%;   
+ color: aliceblue;
+}
+
+.btn {
+    display: grid;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2ecc71;
+    color: #ffffff;
+    font-size: 12px;
+    text-align: center;
+    text-decoration: none;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s;
+    width: 50%;
+    height: 40px;
+  }
+
+  .btn:hover {
+    background-color: #0c5a2c;
+    
+}
+
+  .w3-container form > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .w3-container form label {
+    width: 80px; /* or any other value */
+    margin-right: 10px;
+  }
+  
+  .w3-container form input[type="text"],
+  .w3-container form input[type="number"] {
+    flex: 1;
+  }

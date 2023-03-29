@@ -1,0 +1,54 @@
+.w3-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items:normal;
+    background-color: #27ae60;
+    height: max-content;
+    justify-content: space-between;
+}
+
+.btn {
+    display: grid;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #24e775;
+    color: #ffffff;
+    font-size: 12px;
+    text-align: center;
+    text-decoration: none;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s;
+    width: 50%;
+    height: 40px;
+  }
+
+  .btn:hover {
+    background-color: #0c5a2c;
+    
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  table, th, td {
+    border: 3px solid black;
+    background-color: rgb(82, 214, 133);
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #000;
+    color: #fff;
+  }
+
+
+  

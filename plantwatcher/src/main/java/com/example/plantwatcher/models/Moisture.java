@@ -19,7 +19,7 @@ public class Moisture {
     private int id;
 
     @Column(name = "value", nullable = false)
-    private int value;
+    private double value;
 
     @Column(name = "date", nullable = false)
     private LocalDateTime date;
@@ -34,11 +34,12 @@ public class Moisture {
         this.id = id;
     }
 
-    public int getValue() {
+    public double getValue() {
         return value;
     }
 
-    public void setValue(int value) {
+    public void setValue(double value) {
+        value = (2800-value)/800*100;
         this.value = value;
     }
 

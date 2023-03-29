@@ -1,0 +1,21 @@
+<div class="w3-container">
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="name">Name</label>
+      <input type="text" id="name" formControlName="name">
+    </div>
+    <div>
+      <label for="moistureStarter">Moisture [%]</label>
+      <input type="number" id="moistureStarter" formControlName="moistureStarter">
+    </div>
+    <div>
+      <label for="insolationStarter">Insolation [%]</label>
+      <input type="number" id="insolationStarter" formControlName="insolationStarter">
+    </div>
+    <div>
+      <label for="temperatureStarter">Temperature [°C] </label>
+      <input type="number" id="temperatureStarter" formControlName="temperatureStarter">
+    </div>
+    <button type="submit" class="btn">Submit</button>
+  </form>
+</div>

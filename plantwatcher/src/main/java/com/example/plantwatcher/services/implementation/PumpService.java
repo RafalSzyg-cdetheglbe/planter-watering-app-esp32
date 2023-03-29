@@ -30,11 +30,6 @@ public class PumpService implements PumpInterface {
         pumpRepository.save(pump);
     }
 
-    public void turnThePumpOff(Pump pump){
-        pump.setState(true);
-        pumpRepository.save(pump);
-    }
-
     public boolean checkStatus() {
        Pump pump = pumpRepository.findById(1L).orElse(null);
         assert pump != null;
@@ -43,14 +38,16 @@ public class PumpService implements PumpInterface {
         if(pump.getState()) {
             pump.setState(false);
             pumpRepository.save(pump);
+            System.out.println("RETURNED TRUE!");
             return true;
         }
         else {
             pumpRepository.save(pump);
+            System.out.println("RETURNED FALSE!");
             return false;}
     }
 
-    @Scheduled(fixedDelay = 10000)
+    @Scheduled(fixedDelay = 60000)
     @Transactional
     public void updatePumpStatus() {
 
@@ -65,6 +62,7 @@ public class PumpService implements PumpInterface {
 
 
             if (configuration.getConfig().getMoistureStarter() < moisture.getValue()) {
+                System.out.println("PUMP IS ON!");
                 turnThePumpOn(pump);
             }
 
