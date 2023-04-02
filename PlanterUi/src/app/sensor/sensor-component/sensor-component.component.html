@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="field-container temperature">
+      <div class="label">Temperature:</div>
+      <div class="data">{{ sensor.temperature }}&deg;C</div>
+    </div>
+    <div class="field-container moisture">
+      <div class="label">Moisture:</div>
+      <div class="data">{{ sensor.moisture }}%</div>
+    </div>
+    <div class="field-container insolation">
+      <div class="label">Insolation:</div>
+      <div class="data">{{ sensor.insolation }}%</div>
+    </div>
+    <div class="field-container date">
+      <div class="label">Date:</div>
+      <div class="data">{{ sensor.date | date: 'MMM d, y, h:mm a'}}</div>
+    </div>
+  </div>

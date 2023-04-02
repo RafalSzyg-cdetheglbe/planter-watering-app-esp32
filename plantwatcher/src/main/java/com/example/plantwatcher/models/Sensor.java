@@ -1,5 +1,10 @@
 package com.example.plantwatcher.models;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+
 import java.time.LocalDateTime;
 
 public class Sensor {
@@ -46,5 +51,17 @@ public class Sensor {
 
     public void setDate(LocalDateTime date) {
         this.date = date;
+    }
+
+    @Override
+    public String toString() {
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            mapper.registerModule(new JavaTimeModule());
+            mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
+            return mapper.writeValueAsString(this);
+        } catch (JsonProcessingException e) {
+            return "Error converting object to JSON";
+        }
     }
 }

@@ -1,0 +1,51 @@
+.plant-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+  }
+  
+  .image-container {
+    border: 1px solid #000000;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+  background-color: #27ae60;
+  }
+  
+  .image-container h1 {
+    font-size: 18px;
+    margin-top: 10px;
+    margin-right: 80px;
+  }
+  
+  .image-container img {
+    width: 100px;
+    height: auto;
+  }
+
+  .chose-btn {
+    background-color: #2e975a;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .chose-btn:hover {
+    background-color: #20884b;
+  }
+  
+
+  @media only screen and (max-width: 768px) {
+    .plant-container {
+      flex-direction: column;
+    }
+  
+    .image-container {
+      margin: 10px 0;
+    }
+  }

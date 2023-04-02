@@ -61,7 +61,7 @@ public class PumpService implements PumpInterface {
             Temperature temperature = temperatureRepository.findFirstByOrderByDateDesc();
 
 
-            if (configuration.getConfig().getMoistureStarter() < moisture.getValue()) {
+            if (configuration.getConfig().getMoistureStarter() > moisture.getValue()) {
                 System.out.println("PUMP IS ON!");
                 turnThePumpOn(pump);
             }

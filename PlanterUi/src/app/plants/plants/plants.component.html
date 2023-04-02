@@ -1,0 +1,23 @@
+<div *ngFor="let plant of plants">
+<div class="plant-container">
+    
+    <div class="image-container" *ngIf="plant.id===1">
+        <h1>{{plant.name}}</h1>
+      <img src="assets\images\cactus.png" >
+      <button class="chose-btn" (click)="chooseConfig(plant.config)">Choose</button>
+    </div>
+
+    <div class="image-container" *ngIf="plant.id===2">
+        <h1>{{plant.name}}</h1>
+        <img src="assets\images\fern.png" >
+        <button class="chose-btn" (click)="chooseConfig(plant.config)">Choose</button>
+    </div>
+
+    <div class="image-container" *ngIf="plant.id===3">
+        <h1>{{plant.name}}</h1>
+        <img src="assets\images\daisy.png" >
+        <button class="chose-btn" (click)="chooseConfig(plant.config)">Choose</button>
+    </div>
+
+  </div>
+</div>

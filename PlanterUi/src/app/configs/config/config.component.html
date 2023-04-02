@@ -7,15 +7,48 @@
     <div>
       <label for="moistureStarter">Moisture [%]</label>
       <input type="number" id="moistureStarter" formControlName="moistureStarter">
+      <div *ngIf="myForm.controls['moistureStarter'].invalid && (myForm.controls['moistureStarter'].dirty || myForm.controls['moistureStarter'].touched)"class="error-message">
+        <div *ngIf="myForm.controls['moistureStarter'].errors?.['required']">
+          incorrect
+        </div>
+        <div *ngIf="myForm.controls['moistureStarter'].errors?.['min']">
+          0-100
+        </div>
+        <div *ngIf="myForm.controls['moistureStarter'].errors?.['max']">
+          0-100
+        </div>
+      </div>
     </div>
     <div>
       <label for="insolationStarter">Insolation [%]</label>
       <input type="number" id="insolationStarter" formControlName="insolationStarter">
+      <div *ngIf="myForm.controls['insolationStarter'].invalid && (myForm.controls['insolationStarter'].dirty || myForm.controls['insolationStarter'].touched)"class="error-message">
+        <div *ngIf="myForm.controls['insolationStarter'].errors?.['required']">
+          incorrect
+        </div>
+        <div *ngIf="myForm.controls['insolationStarter'].errors?.['min']">
+          0-100
+        </div>
+        <div *ngIf="myForm.controls['insolationStarter'].errors?.['max']">
+          0-100
+        </div>
+      </div>
     </div>
     <div>
-      <label for="temperatureStarter">Temperature [°C] </label>
+      <label for="temperatureStarter">Temperature [°C]</label>
       <input type="number" id="temperatureStarter" formControlName="temperatureStarter">
+      <div *ngIf="myForm.controls['temperatureStarter'].invalid && (myForm.controls['temperatureStarter'].dirty || myForm.controls['temperatureStarter'].touched)"class="error-message">
+        <div *ngIf="myForm.controls['temperatureStarter'].errors?.['required']">
+          incorrect
+        </div>
+        <div *ngIf="myForm.controls['temperatureStarter'].errors?.['min']">
+          -20-100
+        </div>
+        <div *ngIf="myForm.controls['temperatureStarter'].errors?.['max']">
+          -20-100
+        </div>
+      </div>
     </div>
-    <button type="submit" class="btn">Submit</button>
+    <button type="submit" class="btn" [disabled]="myForm.invalid">Submit</button>
   </form>
 </div>

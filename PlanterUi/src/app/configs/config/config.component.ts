@@ -18,9 +18,9 @@ export class ConfigComponent implements OnInit {
   ngOnInit() {
     this.myForm = this.formBuilder.group({
       name: ['', Validators.required],
-      moistureStarter: ['', Validators.required],
-      insolationStarter: ['', Validators.required],
-      temperatureStarter: ['', Validators.required]
+      moistureStarter: ['', [Validators.required, Validators.min(0), Validators.max(100)]],
+      insolationStarter: ['', [Validators.required, Validators.min(0), Validators.max(100)]],
+      temperatureStarter: ['', [Validators.required, Validators.min(-20), Validators.max(100)]]
     });
   }
 

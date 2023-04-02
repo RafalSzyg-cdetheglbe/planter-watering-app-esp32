@@ -6,6 +6,7 @@ import com.example.plantwatcher.services.interfaces.InsolationInterface;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 @Service
@@ -33,4 +34,17 @@ private final InsolationRepository insolationRepository;
     public List<Insolation> getAllInsolationReadings() {
         return insolationRepository.findAllByOrderByDateAsc();
     }
-}
+
+    public Double getInsolationFromYesterday()
+    {
+        double sum = 0.0;
+        LocalDateTime yesterday = LocalDateTime.now().minusDays(1);
+        List<Insolation> insolations = insolationRepository.findByDateAfter(yesterday);
+        for (Insolation insolation : insolations) {
+            sum += insolation.getValue();
+        }
+        return 100-sum/insolations.size()*100;
+        }
+    }
+
+

@@ -15,12 +15,12 @@
           <th>Action</th>
         </tr>
       </thead>
-      <tbody>
-        <tr *ngFor="let config of configs">
+      <tbody *ngFor="let config of configs">
+        <tr *ngIf="config.id > 3">
           <td>{{ config.name }}</td>
-          <td>{{ config.moistureStarter }}</td>
-          <td>{{ config.temperatureStarter }}</td>
-          <td>{{ config.instolationStarter }}</td>
+          <td>{{ config.moistureStarter }}%</td>
+          <td>{{ config.temperatureStarter}}°C</td>
+          <td>{{ config.insolationStarter }}%</td>
           <td>
               <button class="chose-btn" (click)="chooseConfig(config)">Choose</button>
               <button class="delete-btn">Delete</button>

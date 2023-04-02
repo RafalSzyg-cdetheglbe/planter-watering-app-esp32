@@ -10,6 +10,8 @@ import { ChosenconfigurationComponent } from './configs/chosenconfiguration/chos
 import { ConfigComponent } from './configs/config/config.component';
 import { HomeComponent } from './home/home/home.component';
 import { ConfigsListComponent } from './configs/configs-list/configs-list.component';
+import { SensorComponentComponent } from './sensor/sensor-component/sensor-component.component';
+import { PlantsComponent } from './plants/plants/plants.component';
 
 
 @NgModule({
@@ -18,7 +20,10 @@ import { ConfigsListComponent } from './configs/configs-list/configs-list.compon
      ConfigComponent,
      HomeComponent,
      ChosenconfigurationComponent,
-     ConfigsListComponent
+     ConfigsListComponent,
+     SensorComponentComponent,
+     PlantsComponent
+    
   ],
   imports: [
     BrowserModule,

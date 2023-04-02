@@ -17,8 +17,39 @@ public class Plant {
     @JoinColumn(name = "config_id")
     private Configs config;
 
-    @Lob
     @Column(name = "image")
-    private byte[] image;
+    private String imageName;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Configs getConfig() {
+        return config;
+    }
+
+    public void setConfig(Configs config) {
+        this.config = config;
+    }
+
+    public String getImageName() {
+        return imageName;
+    }
+
+    public void setImageName(String imageName) {
+        this.imageName = imageName;
+    }
     // Getters and setters
 }
