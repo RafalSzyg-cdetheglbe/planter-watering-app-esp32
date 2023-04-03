@@ -6,6 +6,7 @@ import { ConfigsListComponent } from './configs/configs-list/configs-list.compon
 import { HomeComponent } from './home/home/home.component';
 import { PlantsComponent } from './plants/plants/plants.component';
 import { SensorComponentComponent } from './sensor/sensor-component/sensor-component.component';
+import { MoistureGraphComponent } from './graph/moisture-graph/moisture-graph.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -14,7 +15,9 @@ const routes: Routes = [
   { path: 'chosenConfig', component: ChosenconfigurationComponent },
   { path: 'allConfigs', component: ConfigsListComponent },
   { path: 'sensors', component: SensorComponentComponent },
-  { path: 'plants', component: PlantsComponent }
+  { path: 'plants', component: PlantsComponent },
+  { path: 'moistureGraph', component: MoistureGraphComponent }
+
 ];
 
 @NgModule({

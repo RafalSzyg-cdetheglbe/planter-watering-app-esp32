@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home/home.component';
 import { ConfigsListComponent } from './configs/configs-list/configs-list.component';
 import { SensorComponentComponent } from './sensor/sensor-component/sensor-component.component';
 import { PlantsComponent } from './plants/plants/plants.component';
+import { MoistureGraphComponent } from './graph/moisture-graph/moisture-graph.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { PlantsComponent } from './plants/plants/plants.component';
      ChosenconfigurationComponent,
      ConfigsListComponent,
      SensorComponentComponent,
-     PlantsComponent
+     PlantsComponent,
+     MoistureGraphComponent
     
   ],
   imports: [

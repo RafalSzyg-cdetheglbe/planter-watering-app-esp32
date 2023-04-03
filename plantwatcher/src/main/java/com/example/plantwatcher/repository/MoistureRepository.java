@@ -11,5 +11,5 @@ import java.util.List;
 public interface MoistureRepository  extends JpaRepository<Moisture, Long> {
     Moisture findFirstByOrderByDateDesc();
     List<Moisture> findAllByOrderByDateAsc();
-
+    List<Moisture> findTop10ByOrderByDateDesc();
 }

@@ -10,6 +10,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/moisture")
+@CrossOrigin(origins = "*")
 public class MoistureController {
 
 private final MoistureService moistureService;
@@ -39,6 +40,13 @@ private final MoistureService moistureService;
     @RequestMapping("/getAllMoistureReadings")
     public ResponseEntity<String> getAllMoistureReadings(){
         List<Moisture> moistures=moistureService.getAllMoistureReadings();
+        return ResponseEntity.ok(moistures.toString());
+    }
+
+    @GetMapping
+    @RequestMapping("/getLastTenReadings")
+    public ResponseEntity<String> getLastTenReadings(){
+        List<Moisture> moistures=moistureService.getLastTenReadings();
         return ResponseEntity.ok(moistures.toString());
     }
 
