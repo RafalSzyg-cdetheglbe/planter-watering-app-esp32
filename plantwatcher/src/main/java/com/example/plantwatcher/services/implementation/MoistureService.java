@@ -43,6 +43,6 @@ public class MoistureService implements MoistureInterface {
     }
 
     public List<Moisture> getLastTenReadings() {
-        return moistureRepository.findTop10ByOrderByDateDesc();
+        return moistureRepository.findTop15ByOrderByDateDesc();
     }
 }
