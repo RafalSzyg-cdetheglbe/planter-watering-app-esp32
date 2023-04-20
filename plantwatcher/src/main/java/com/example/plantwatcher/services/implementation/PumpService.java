@@ -8,6 +8,8 @@ import jakarta.transaction.Transactional;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
+import java.sql.SQLOutput;
+
 @Service
 public class PumpService implements PumpInterface {
     private final PumpRepository pumpRepository;
@@ -59,7 +61,6 @@ public class PumpService implements PumpInterface {
             Insolation insolation = insolationRepository.findFirstByOrderByDateDesc();
             Moisture moisture = moistureRepository.findFirstByOrderByDateDesc();
             Temperature temperature = temperatureRepository.findFirstByOrderByDateDesc();
-
 
             if (configuration.getConfig().getMoistureStarter() > moisture.getValue()) {
                 System.out.println("PUMP IS ON!");
